@@ -20,6 +20,11 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log('MongoDB connected'))
 .catch((err) => console.log('MongoDB connection error:', err));
 
+// Root route (so Render URL works)
+app.get('/', (req, res) => {
+  res.send('Backend is running 🚀');
+});
+
 // Routes
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/productRoutes');
